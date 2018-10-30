@@ -15,5 +15,6 @@ npm-debug.log*
 
 # build
 /*.js
+!/.eslintrc.js
 *.apk
 output
