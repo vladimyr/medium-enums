@@ -1,0 +1,48 @@
+{
+  "name": "medium-enums",
+  "version": "0.0.0",
+  "description": "Dynamically generated Medium.com internal enums",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint ./script",
+    "prebuild": "del-cli *.js",
+    "enums:read": "node script/read-enums Medium*.apk -d ./output",
+    "enums:write": "node script/write-enums -d ./",
+    "build": "npm run -s enums:read | npm run -s enums:write",
+    "prepublishOnly": "npm run build",
+    "release": "np"
+  },
+  "keywords": [
+    "medium",
+    "enum",
+    "post",
+    "obv"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/vladimyr/medium-enums.git"
+  },
+  "author": {
+    "email": "d.vladimyr@gmail.com",
+    "name": "Dario Vladovic",
+    "url": "https://github.com/vladimyr"
+  },
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/vladimyr/medium-enums/issues"
+  },
+  "homepage": "https://github.com/vladimyr/medium-enums",
+  "devDependencies": {
+    "del": "^3.0.0",
+    "del-cli": "^1.1.0",
+    "eslint": "^5.4.0",
+    "eslint-config-semistandard": "^12.0.1",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^4.0.0",
+    "eslint-plugin-standard": "^4.0.0",
+    "get-stdin": "^6.0.0",
+    "minimist": "^1.2.0"
+  }
+}
